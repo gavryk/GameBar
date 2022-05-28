@@ -1,18 +1,19 @@
 import axios from "axios";
-import { popularGamesURL } from "../../api/api";
+import { popularGamesURL, upcomingGamesURL, newGamesURL } from "../../api/api";
 
-export const fetchPopularGames = () => {
+export const fetchGames = () => {
     return async (dispatch) => {
-        await axios.get(popularGamesURL())
-            .then(data => {
-                dispatch(setPopularGames(data.data.results));
-            });
-    }
-}
-
-export const setPopularGames = (items) => {
-    return {
-        type: "SET_POPULAR_GAMES",
-        payload: items
+        const popularGames = await axios.get(popularGamesURL());
+        const upcomingGames = await axios.get(upcomingGamesURL());
+        const newGames = await axios.get(newGamesURL());
+        
+        dispatch({
+          type: "FETCH_GAMES",
+          payload: {
+            popular: popularGames.data.results,
+            upcoming: upcomingGames.data.results,
+            new: newGames.data.results,
+          },
+        });
     }
 }

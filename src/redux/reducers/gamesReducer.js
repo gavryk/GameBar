@@ -1,5 +1,5 @@
 const initState = {
-  popularGames: [],
+  popular: [],
   newGames: [],
   upcoming: [],
   searched: [],
@@ -7,10 +7,12 @@ const initState = {
 
 const games = (state = initState, action) => {
     switch (action.type) {
-      case "SET_POPULAR_GAMES":
+      case "FETCH_GAMES":
         return {
           ...state,
-          popularGames: action.payload,
+          popular: action.payload.popular,
+          newGames: action.payload.new,
+          upcoming: action.payload.upcoming,
         };
       default:
         return state;

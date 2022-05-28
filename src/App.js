@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchPopularGames } from "./redux/actions/getGames";
+import { fetchGames } from "./redux/actions/getGames";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPopularGames());
-  }, [])
+    dispatch(fetchGames());
+  }, [dispatch])
 
   return (
     <div className="App">
