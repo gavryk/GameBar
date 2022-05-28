@@ -20,6 +20,6 @@ const currentYear = new Date().getFullYear(),
       nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 //Popular Games
-const popular_games = `games?key=${process.env.REACT_APP_GAMES_API}dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+const popular_games = `games?key=${process.env.REACT_APP_GAMES_API}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
 
 export const popularGamesURL = () => `${api_url}${popular_games}`;
