@@ -1,3 +1,5 @@
+@import './vars.scss';
+
 * {
   padding: 0;
   margin: 0;
@@ -7,9 +9,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: $font;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,6 +22,29 @@ code {
 
 img {
   max-width: 100%;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: $font2;
+  font-weight: lighter;
+}
+
+h4 {
+  font-size: 1rem;
+  color: #333;
+  padding: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 200%;
+  color: #696969;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
 }
 
 .pageContainer {
@@ -46,6 +70,6 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(253, 218, 61);
+  background: $color;
   // border-radius: 2px;
 }
