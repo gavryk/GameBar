@@ -1,0 +1,11 @@
+.gamesRow {
+  margin-bottom: 5rem;
+  .title {
+      padding-bottom: 3rem;
+  }
+  .gamesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 3rem 2rem;
+  }
+}
