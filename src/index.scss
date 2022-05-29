@@ -18,3 +18,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+img {
+  max-width: 100%;
+}
+
+.pageContainer {
+    width: 1600px;
+    max-width: 96%;
+    margin: 0 auto;
+    position: relative;
+    padding: 80px 0;
+}
