@@ -1,0 +1,19 @@
+.gameDetail {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    .detail {
+        width: 80%;
+        border-radius: 1rem;
+        padding: 2rem 4rem;
+        background-color: #fff;
+        position: absolute;
+        left: 10%;
+        color: #000;
+    }
+}
