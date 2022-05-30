@@ -3,6 +3,7 @@ import { gameDetailURL, gameScreenShotsURL } from "../../api/api";
 
 export const loadDetail = (id) => {
     return async (dispatch) => {
+        dispatch(loading());
         const datailData = await axios.get(gameDetailURL(id));
         const screenShotsData = await axios.get(gameScreenShotsURL(id));
 
@@ -14,4 +15,10 @@ export const loadDetail = (id) => {
           },
         });
     }
+}
+
+export const loading = () => {
+  return {
+    type: "SET_LOADING"
+  };
 }
