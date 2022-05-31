@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { loadDetail } from "../../../redux/actions/getDetail";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { smallImage } from "../../../utils/utils";
 
 const GameCard = ({ name, background_image, released, id }) => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const GameCard = ({ name, background_image, released, id }) => {
     document.body.style.overflow = 'hidden';
     dispatch(loadDetail(id));
   }
-  
+
   return (
     <motion.div className={style.gameCard} onClick={gameInfoHandler}>
       <NavLink to={`/game/${id}`}>
@@ -22,7 +23,7 @@ const GameCard = ({ name, background_image, released, id }) => {
           <span>{released}</span>
         </div>
         <div className={style.cardImage}>
-          <img src={background_image} alt={name} />
+          <img src={smallImage(background_image, 1280)} alt={name} />
         </div>
       </NavLink>
     </motion.div>
