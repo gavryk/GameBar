@@ -13,7 +13,7 @@ const GameCard = ({ name, background_image, released, id }) => {
     document.body.style.overflow = 'hidden';
     dispatch(loadDetail(id));
   }
-
+  
   return (
     <motion.div className={style.gameCard} onClick={gameInfoHandler}>
       <NavLink to={`/game/${id}`}>
