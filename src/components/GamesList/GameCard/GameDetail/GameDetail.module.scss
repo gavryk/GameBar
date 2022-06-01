@@ -6,15 +6,19 @@
   top: 0;
   left: 0;
   z-index: 2;
-  .detail {
-    width: 80%;
-    height: 100%;
-    overflow-y: scroll;
+  .detailWrapper {
+    background-color: #fff;
     border-radius: 1rem;
     padding: 2rem 4rem;
-    background-color: #fff;
     position: absolute;
+    width: 80%;
+    height: 95%;
     left: 10%;
+    top: 2%;
+  }
+  .detail {
+    height: 100%;
+    overflow-y: scroll;
     color: #000;
     &::-webkit-scrollbar {
       width: .3rem;
@@ -25,6 +29,20 @@
     }
     &::-webkit-scrollbar-track {
       background-color: transparent;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      align-items: center;
+      justify-content: space-between;
+      grid-gap: 15px;
+      .info {
+        .platforms {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-gap: 15px;
+        }
+      }
     }
   }
 }
