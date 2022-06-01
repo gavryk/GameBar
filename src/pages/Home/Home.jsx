@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div className={style.homePage}>
       {pathId && <GameDetail />}
-      {!isLoaded ? (
+      {isLoaded ? (
         <div className="pageContainer">
           <GamesList title="Upcoming Games" games={upcoming} />
           <GamesList title="New Games" games={newGames} />
