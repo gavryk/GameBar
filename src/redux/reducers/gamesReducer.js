@@ -3,6 +3,7 @@ const initState = {
   newGames: [],
   upcoming: [],
   searched: [],
+  isLoaded: false
 };
 
 const games = (state = initState, action) => {
@@ -14,6 +15,11 @@ const games = (state = initState, action) => {
           newGames: action.payload.new,
           upcoming: action.payload.upcoming,
         };
+      case "SET_LOADING":
+        return {
+          ...state,
+          isLoaded: true
+        }
       default:
         return state;
     }

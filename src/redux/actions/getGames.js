@@ -15,5 +15,13 @@ export const fetchGames = () => {
             new: newGames.data.results,
           },
         });
+
+        dispatch(setLoading());
     }
+}
+
+export const setLoading = () => {
+  return {
+    type: "SET_LOADING"
+  }
 }
