@@ -2,6 +2,7 @@ import React from "react";
 import style from "./GameDetail.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +27,7 @@ const GameDetail = ({ pathId }) => {
     navigate("/", { replace: true });
   };
 
+  //Platforms Icons
   const getPlaform = (platform) => {
     switch (platform) {
       case "PlayStation 4":
@@ -43,6 +45,20 @@ const GameDetail = ({ pathId }) => {
       default:
         return gamepad;
     }
+  };
+
+  //Stars
+  const getStars = () => {
+    const stars = [];
+    const rating = Math.floor(game.rating);
+    for(let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<FontAwesomeIcon key={`${i}_${rating}`} icon={faStar} color="red" />);
+      } else {
+        stars.push(<FontAwesomeIcon key={`${i}_${rating}`} icon={faStar} color="black" />);
+      }
+    }
+    return stars;
   }
 
   return (
@@ -58,6 +74,7 @@ const GameDetail = ({ pathId }) => {
                 <motion.div className="rating">
                   <h3>{game.name}</h3>
                   <p>Rating: {game.rating}</p>
+                  {getStars()}
                 </motion.div>
                 <motion.div className={style.info}>
                   <h3>Platforms</h3>
