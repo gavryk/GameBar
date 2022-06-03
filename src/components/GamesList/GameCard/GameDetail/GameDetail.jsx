@@ -29,13 +29,11 @@ const GameDetail = ({ pathId }) => {
   const getPlaform = (platform) => {
     switch (platform) {
       case "PlayStation 4":
-        return playstation;
       case "PlayStation 5":
         return playstation;
       case "PC":
         return steam;
       case "Xbox One":
-        return xbox;
       case "Xbox Series S/X":
         return xbox;
       case "Nintendo Switch":
@@ -48,48 +46,46 @@ const GameDetail = ({ pathId }) => {
   }
 
   return (
-    <motion.div>
-      {!isLoading && (
-        <motion.div className={style.gameDetail}>
-          <motion.div className={style.detailWrapper} layoutId={pathId}>
-            <motion.button
-              className={style.closePop}
-              onClick={exitDetailHandler}
-            >
-              <FontAwesomeIcon icon={faXmark} />
-            </motion.button>
+    <>
+      <motion.div className={style.gameDetail}>
+        <motion.div className={style.detailWrapper} layoutId={pathId}>
+          <motion.button className={style.closePop} onClick={exitDetailHandler}>
+            <FontAwesomeIcon icon={faXmark} />
+          </motion.button>
+          {!isLoading && (
             <motion.div className={style.detail}>
               <motion.div className={style.stats}>
-                <div className="rating">
+                <motion.div className="rating">
                   <h3>{game.name}</h3>
                   <p>Rating: {game.rating}</p>
-                </div>
-                <div className={style.info}>
+                </motion.div>
+                <motion.div className={style.info}>
                   <h3>Platforms</h3>
-                  <div className={style.platforms}>
+                  <motion.div className={style.platforms}>
                     {game.platforms.map(({ platform }) => {
                       return (
                         <img
                           key={platform.id}
                           src={getPlaform(platform.name)}
                           alt={platform.name}
-                        ></img>
+                          title={platform.name}
+                        />
                       );
                     })}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </motion.div>
-              <div className="media">
+              <motion.div className="media">
                 <motion.img
                   layoutId={`image${pathId}`}
                   src={smallImage(game.background_image, 1280)}
                   alt={game.name}
                 />
-              </div>
-              <div className="description">
+              </motion.div>
+              <motion.div className="description">
                 <p>{game.description_raw}</p>
-              </div>
-              <div className="gallery">
+              </motion.div>
+              <motion.div className="gallery">
                 {screenshots &&
                   screenshots.map(({ image, id }) => {
                     return (
@@ -100,12 +96,12 @@ const GameDetail = ({ pathId }) => {
                       />
                     );
                   })}
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          )}
         </motion.div>
-      )}
-    </motion.div>
+      </motion.div>
+    </>
   );
 };
 

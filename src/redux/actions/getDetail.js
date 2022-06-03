@@ -19,6 +19,6 @@ export const loadDetail = (id) => {
 
 export const loading = () => {
   return {
-    type: "SET_LOADING"
+    type: "SET_LOAD"
   };
 }

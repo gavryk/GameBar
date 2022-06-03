@@ -15,7 +15,7 @@ const detailReducer = (state = initState, action) => {
         screenshots: action.payload.screenshots,
         isLoading: false
       };
-    case "SET_LOADING":
+    case "SET_LOAD":
       return {
         ...state,
         isLoading: true,
