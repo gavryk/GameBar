@@ -6,7 +6,7 @@ import GameCard from './GameCard/GameCard';
 const GamesList = ({games, title}) => {
   return (
     <motion.div className={style.gamesRow}>
-      <h2 className={style.title}>{title}</h2>
+      <motion.h2 className={style.title}>{title}</motion.h2>
       <motion.div className={style.gamesList}>
         {games &&
           games.map((game) => {
