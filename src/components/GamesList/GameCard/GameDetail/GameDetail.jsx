@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { smallImage } from "../../../../utils/utils";
+import playstation from '../../../../img/playstation.svg';
+import steam from '../../../../img/steam.svg';
+import xbox from '../../../../img/xbox.svg';
+import nintendo from "../../../../img/nintendo.svg";
+import apple from "../../../../img/apple.svg";
+import gamepad from "../../../../img/gamepad.svg";
 
 const GameDetail = ({ pathId }) => {
   const { game, screenshots, isLoading } = useSelector(
@@ -19,6 +25,27 @@ const GameDetail = ({ pathId }) => {
     document.body.style.paddingRight = "0px";
     navigate("/", { replace: true });
   };
+
+  const getPlaform = (platform) => {
+    switch (platform) {
+      case "PlayStation 4":
+        return playstation;
+      case "PlayStation 5":
+        return playstation;
+      case "PC":
+        return steam;
+      case "Xbox One":
+        return xbox;
+      case "Xbox Series S/X":
+        return xbox;
+      case "Nintendo Switch":
+        return nintendo;
+      case "iOS":
+        return apple;
+      default:
+        return gamepad;
+    }
+  }
 
   return (
     <motion.div>
@@ -41,7 +68,13 @@ const GameDetail = ({ pathId }) => {
                   <h3>Platforms</h3>
                   <div className={style.platforms}>
                     {game.platforms.map(({ platform }) => {
-                      return <h4 key={platform.id}>{platform.name}</h4>;
+                      return (
+                        <img
+                          key={platform.id}
+                          src={getPlaform(platform.name)}
+                          alt={platform.name}
+                        ></img>
+                      );
                     })}
                   </div>
                 </div>
