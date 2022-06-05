@@ -6,7 +6,7 @@ import GameCard from './GameCard/GameCard';
 const GamesList = ({games, title}) => {
   return (
     <>
-      {games.length !== 0 && (
+      {games.length !== 0 ? (
         <motion.div className={style.gamesRow}>
           <motion.h2 className={style.title}>{title}</motion.h2>
           <motion.div className={style.gamesList}>
@@ -16,6 +16,8 @@ const GamesList = ({games, title}) => {
               })}
           </motion.div>
         </motion.div>
+      ) : (
+        ""
       )}
     </>
   );

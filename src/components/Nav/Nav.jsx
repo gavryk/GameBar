@@ -13,6 +13,10 @@ const Nav = () => {
     
   }
 
+  const clearSearched = () => {
+    dispatch({ type: "CLEAR_SEARCHED" });
+  };
+
   const submitSearch = (e) => {
     e.preventDefault();
     dispatch(searchGame(inputText));
@@ -20,7 +24,7 @@ const Nav = () => {
   }
   return (
     <motion.div className={style.navBar}>
-      <motion.div className={style.logo}>
+      <motion.div className={style.logo} onClick={clearSearched}>
         <span>GameBar</span>
       </motion.div>
       <form className={style.search} onSubmit={submitSearch}>

@@ -25,6 +25,11 @@ const games = (state = initState, action) => {
           ...state,
           searched: action.payload
         }
+      case "CLEAR_SEARCHED":
+        return {
+          ...state,
+          searched: []
+        }
       default:
         return state;
     }
