@@ -30,3 +30,6 @@ export const upcomingGamesURL = () => `${api_url}${upcoming_games}`;
 export const newGamesURL = () => `${api_url}${new_games}`;
 export const gameDetailURL = (id) =>`${api_url}games/${id}?key=${process.env.REACT_APP_GAMES_API}`;
 export const gameScreenShotsURL = (id) =>`${api_url}games/${id}/screenshots?key=${process.env.REACT_APP_GAMES_API}`;
+
+//Search API
+export const searchGameURL = (gameName) => `${api_url}games?key=${process.env.REACT_APP_GAMES_API}&search=${gameName}&page_size=9`;

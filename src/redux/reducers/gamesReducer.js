@@ -20,6 +20,11 @@ const games = (state = initState, action) => {
           ...state,
           isLoaded: true
         }
+      case "SEARCHED_GAME":
+        return {
+          ...state,
+          searched: action.payload
+        }
       default:
         return state;
     }
