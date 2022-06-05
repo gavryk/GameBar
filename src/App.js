@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
+import { Nav } from "./components";
 import { Home } from "./pages";
 import { fetchGames } from "./redux/actions/getGames";
 
@@ -13,6 +14,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Nav/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/game/:id' element={<Home />} />

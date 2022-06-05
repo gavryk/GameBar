@@ -102,7 +102,7 @@ const GameDetail = ({ pathId }) => {
               <motion.div className="description">
                 <p>{game.description_raw}</p>
               </motion.div>
-              <motion.div className="gallery">
+              <motion.div className={style.gallery}>
                 {screenshots &&
                   screenshots.map(({ image, id }) => {
                     return (

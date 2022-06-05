@@ -1,0 +1,37 @@
+@import '../../vars.scss';
+
+.navBar {
+  width: 1600px;
+  max-width: 96%;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+  text-align: center;
+  .logo {
+      font-size: 1.8rem;
+      font-family: $font2;
+      margin-bottom: 0.8rem;
+  }
+  .search {
+    input {
+      width: 30%;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      border: none;
+      margin-top: 1rem;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, .2);
+      background-color: transparent;
+      outline: none;
+      font-weight: 700;
+      color: #333;
+    }
+    button {
+        font-size: 1.2rem;
+        border: none;
+        padding: .5rem 2rem;
+        cursor: pointer;
+        background-color: $color;
+        color: #fff;
+    }
+  }
+}
