@@ -3,6 +3,7 @@ import style from './Nav.module.scss';
 import { motion } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 import { searchGame } from '../../redux/actions/getGames';
+import { fadeIn } from '../../animations';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Nav = () => {
     setInputText('');
   }
   return (
-    <motion.div className={style.navBar}>
+    <motion.div variants={fadeIn} initial='hidden' animate='show' className={style.navBar}>
       <motion.div className={style.logo} onClick={clearSearched}>
         <span>GameBar</span>
       </motion.div>

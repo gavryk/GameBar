@@ -6,6 +6,7 @@ import { loadDetail } from "../../../redux/actions/getDetail";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { smallImage } from "../../../utils/utils";
+import { popup } from "../../../animations";
 
 const GameCard = ({ name, background_image, released, id }) => {
   const dispatch = useDispatch();
@@ -19,14 +20,25 @@ const GameCard = ({ name, background_image, released, id }) => {
   }
 
   return (
-    <motion.div layoutId={stringPathId} className={style.gameCard} onClick={gameInfoHandler}>
+    <motion.div
+      variants={popup}
+      initial="hidden"
+      animate="show"
+      layoutId={stringPathId}
+      className={style.gameCard}
+      onClick={gameInfoHandler}
+    >
       <NavLink to={`/game/${id}`}>
         <motion.div className={style.cardInfo}>
           <motion.h4>{name}</motion.h4>
           <motion.span>{released}</motion.span>
         </motion.div>
         <motion.div className={style.cardImage}>
-          <motion.img layoutId={`image${stringPathId}`} src={smallImage(background_image, 1280)} alt={name} />
+          <motion.img
+            layoutId={`image${stringPathId}`}
+            src={smallImage(background_image, 1280)}
+            alt={name}
+          />
         </motion.div>
       </NavLink>
     </motion.div>
